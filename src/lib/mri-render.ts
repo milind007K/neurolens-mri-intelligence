@@ -36,7 +36,8 @@ function brain(x: number, y: number, z: number, L: Lesion): number {
   return v + n;
 }
 
-function distSeg(p: number[], a: number[], b: number[]) {
+type V3 = [number, number, number];
+function distSeg(p: V3, a: V3, b: V3) {
   const ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
   const ap = [p[0] - a[0], p[1] - a[1], p[2] - a[2]];
   const t = Math.max(0, Math.min(1, (ap[0] * ab[0] + ap[1] * ab[1] + ap[2] * ab[2]) / (ab[0] ** 2 + ab[1] ** 2 + ab[2] ** 2)));
