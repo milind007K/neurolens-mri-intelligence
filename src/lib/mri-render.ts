@@ -38,10 +38,10 @@ function brain(x: number, y: number, z: number, L: Lesion): number {
 
 type V3 = [number, number, number];
 function distSeg(p: V3, a: V3, b: V3) {
-  const ab = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
-  const ap = [p[0] - a[0], p[1] - a[1], p[2] - a[2]];
-  const t = Math.max(0, Math.min(1, (ap[0] * ab[0] + ap[1] * ab[1] + ap[2] * ab[2]) / (ab[0] ** 2 + ab[1] ** 2 + ab[2] ** 2)));
-  const d = Math.hypot(ap[0] - ab[0] * t, ap[1] - ab[1] * t, ap[2] - ab[2] * t);
+  const bx = b[0] - a[0], by = b[1] - a[1], bz = b[2] - a[2];
+  const px = p[0] - a[0], py = p[1] - a[1], pz = p[2] - a[2];
+  const t = Math.max(0, Math.min(1, (px * bx + py * by + pz * bz) / (bx * bx + by * by + bz * bz)));
+  const d = Math.hypot(px - bx * t, py - by * t, pz - bz * t);
   return { d, t };
 }
 

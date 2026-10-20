@@ -115,7 +115,8 @@ export async function generateHospitalReport(c: MriCase) {
   // ---------- SECTION 3: IMPRESSION ----------
   doc.setFillColor(255, 248, 230);
   doc.setDrawColor(220, 160, 40);
-  const imp = doc.splitTextToSize(c.impression, CW - 30);
+  doc.setFont("helvetica", "bold"); doc.setFontSize(9.5);
+  const imp = doc.splitTextToSize(c.impression, CW - 32);
   const ih = imp.length * 4.2 + 5;
   doc.rect(M, y, CW, ih, "FD");
   doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(20);
