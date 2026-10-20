@@ -125,7 +125,7 @@ export async function generateHospitalReport(c: MriCase) {
   y += ih + 4;
 
   // ---------- SECTION 4: CDS BOX ----------
-  const triageColor: Record<string, [number, number, number]> = { CRITICAL: [214, 40, 57], URGENT: [230, 126, 34], ROUTINE: [39, 160, 90] };
+  const triageColor: Record<MriCase["triage"], [number, number, number]> = { CRITICAL: [214, 40, 57], URGENT: [230, 126, 34], ROUTINE: [39, 160, 90] };
   const cdsTop = y;
   doc.setFillColor(235, 243, 255);
   doc.setDrawColor(...blue); doc.setLineWidth(0.6);
