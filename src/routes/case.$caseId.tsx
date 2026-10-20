@@ -32,7 +32,7 @@ export const Route = createFileRoute("/case/$caseId")({
 
 function fromUpload(t: DicomTags): MriCase {
   const knee = /KNEE/i.test(t.bodyPart);
-  const base = knee ? CASES[2] : CASES[0];
+  const base = (knee ? CASES[2] : CASES[0])!;
   return {
     ...base,
     id: "upload",
@@ -56,7 +56,7 @@ function CasePage() {
     setDone(false);
     if (caseId === "upload") {
       const raw = sessionStorage.getItem("neurolens-upload");
-      setC(raw ? fromUpload(JSON.parse(raw)) : CASES[0]);
+      setC(raw ? fromUpload(JSON.parse(raw)) : CASES[0]!);
     } else setC(getCase(caseId) ?? null);
   }, [caseId]);
 

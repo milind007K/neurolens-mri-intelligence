@@ -5,7 +5,7 @@ import { renderSlice } from "@/lib/mri-render";
 export function BrainAnimation() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    const c = CASES[1];
+    const c = CASES[1]!;
     let s = -0.7, dir = 1, raf = 0, last = 0;
     const loop = (t: number) => {
       if (t - last > 70) {
